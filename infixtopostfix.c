@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+#include <ctype.h>
 
 int prec(char x);
 
@@ -40,13 +40,13 @@ void main()
     {
 
         char c = str[i];
-        int a = c;
+     
         if (c == '(') // L bracket
         {
             push(&ms, c);
         }
 
-        if (67 <= a && a <= 122) // operand
+        if (isalpha(c)) // operand
         {
             out[j] = c;
             j++;
@@ -65,10 +65,10 @@ void main()
 
         if (c == ')') // R- bracket
         {
+            char k ;
             do
             {
-                char k = pop(&ms);
-
+                k = pop(&ms);
                 {
                     if (opcheck(k))
                         out[j] = k;
@@ -104,15 +104,11 @@ int prec(char x)
     }
     if (x == '/')
     {
-        p = 3;
+        p = 4;
     }
     if (x == '^')
     {
-        p = 4;
-    }
-    if (x == '%')
-    {
-        p = 3;
+        p = 6;
     }
     return p;
 }
