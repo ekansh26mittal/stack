@@ -1,5 +1,6 @@
 #include<stdio.h>
-
+#include<math.h>
+#include<ctype.h>
 
 
 typedef struct stk
@@ -10,74 +11,48 @@ typedef struct stk
 
 } Stack1;
 
+void push(Stack1 *s, char x);
+char pop(Stack1 *s);
+void printst(Stack1 *s);
+char peek(Stack1 *s);
+int full(Stack1 *s);
+int empty(Stack1 *s);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int prec(char x)
+void main()
 {
-    int p;
-    if(x =='+')
-    {p=1;}
-    if(x== '-')
-    {p=0;}
-    if(x =='*')
-    {p=3;}
-    if(x =='/')
-    {p=3;}
-    if(x =='^')
-    {p=4;}
-    if(x =='%')
-    {p=3;}
-    return p;
+     Stack1  smain;
+
+      char str[]="2 3 4 * + 5 -";
+
+      int i=0;
+    int k; 
+     while(str[i]!='\0')
+      {
+        char c = str[i];
+       if(c==' ')
+       {
+         i++;
+         break;
+       }
+       if(isdigit(c))
+       {
+        push(c);
+
+       }
+       if()
+
+        i++;
+      }
 }
-int opcheck(char k)
-{
-     if (k=='+'||k=='-'||k=='*'||k=='/'||k=='%'||k=='^')
-     {return 1;}
-     else 
-     {return 0;}
-}
+
+
+
+
+
+
+
+
 void push(Stack1 *s, char x)
 {
     if (!full(s))
@@ -127,6 +102,7 @@ int full(Stack1 * s)
     }
 }
 int empty(Stack1 * s)
+
 {
     if (s->top != -1)
     {
