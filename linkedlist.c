@@ -62,16 +62,8 @@ void main()
             break;
 
         default:
-            break;
-        }
-        if (i != 1 || i != 2 || i != 3 || i != 4)
-        {
-            break;
-        }
-        // if (i >4)
-        // {
-        //     break;
-        // }
+            exit(1);
+        }      
     }
 }
 
